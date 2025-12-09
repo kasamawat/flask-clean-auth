@@ -1,0 +1,11 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.3
+Flask-Migrate==4.0.4
+python-dotenv==1.0.0
+passlib[bcrypt]==1.7.4
+PyJWT==2.8.0
+marshmallow==3.20.1
+pyodbc==4.0.35
+
+# pip uninstall bcrypt
+# pip install "bcrypt<4.0.0"
