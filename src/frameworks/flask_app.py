@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from config import Config
 from flask_migrate import Migrate
 from src.frameworks.db import db
@@ -10,6 +10,11 @@ from src.controllers import auth_controller, user_controller
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+    
+    @app.route("/")
+    def home():
+        return jsonify(message="Hello from Cloud Run!")
+    
     app.config.from_object(config_class)
     
     # connect db
