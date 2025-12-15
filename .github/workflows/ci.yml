@@ -28,4 +28,4 @@ jobs:
       - name: Run unit tests
         run: |
           source venv/bin/activate
-          pytest tests/unit -q
+          pytest tests/ -q
