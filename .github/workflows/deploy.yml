@@ -21,6 +21,7 @@ jobs:
           script: |
             cd ~/flask-clean-auth
             git pull origin main
+            echo "${{ github.sha }}" > .deploy_sha
             source .venv/bin/activate
             flask db upgrade
             sudo systemctl restart flask-auth

@@ -8,12 +8,22 @@ from src.utils.security_wrapper import SecurityWrapper
 
 from src.controllers import auth_controller, user_controller
 
+import os
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     
     @app.route("/")
     def home():
         return jsonify(message="Hello from Cloud Run!")
+    
+    @app.route("/version")
+    def version():
+        try:
+            with open(".deploy_sha") as f:
+                return {"version": f.read().strip()}
+        except FileNotFoundError:
+            return {"version": "unknown"}
     
     app.config.from_object(config_class)
     
